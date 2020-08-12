@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-eqiv="refresh" content="5" ;url="/auction/:id" />
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/stylesheets/gallery.css" />
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-brand">
+                    <a href="/" style="color: azure;">
+              ArtGallery
+            </a>
+                </div>
+
+                <div class="menu-icons open">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-list">
+                    <div class="menu-icons close">
+                        <i class="fas fa-times"></i>
+                    </div>
+
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/gallery" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/auction" class="nav-link">Auctions</a>
+                    </li>
+
+                    <%if(!currentUser){ %>
+                        <li class="nav-item">
+                            <a href="/users/register" class="nav-link">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/users/login" class="nav-link">Login</a>
+                        </li>
+                        <%} else {%>
+
+                            <li class="nav-item">
+                                <a href="/users/logout" class="nav-link">Log-out</a>
+                            </li>
+                            <% }%>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="main-msg">
+                <h1>You are in the Bid/Result page</h1>
+            </div>
+        </div>
+    </section>
+
+    <div class="row align-items-center px-5 mb-5">
+        <div class="col-lg-6">
+            <div class="d-flex justify-content-center">
+                <div id="headingGroup" class="d-lg-block">
+                    <h1>Product:
+                        <%= data.name %>
+                    </h1>
+
+                    <img src=" <%= data.image %>  " alt="" style="height: 30rem; width: 30rem;" />
+                    <h1>Description:
+                        <%= data.description %>
+                    </h1>
+                    <h1>Base Price:
+                        <%= data.minbid %>
+                    </h1>
+                    <h1>Owner:
+                        <%= data.owner %>
+                    </h1>
+
+                    <form id="myForm" autocomplete="off">
+                        <h1 id="demodata" style="color: red;"></h1>
+                        <div class="form-group">
+                            <input type="hidden" id="base" value="<%= data.minbid %> " />
+                            <label for="amtform" style="font-size: medium;">Place your bid</label
+                >
+
+                <input
+                  autocomplete="off"
+                  class="form-control"
+                  type="text"
+                  name="amt"
+                  id="amtform"
+                  placeholder="bidamount"
+                />
+              </div>
+
+              <div class="form-group">
+                <button class="btn btn-primary btn-lg" type="submit">
+                  Submit
+                </button>
+              </div>
+            </form>
+            <div id="showWinner"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="d-flex justify-content-center">
+          <table
+            class="table table-bordered table-dark"
+            style="width: 25rem;"
+            id="myTable"
+          >
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%data.bid.forEach(b=>{%>
+              <tr>
+                <td>
+                  <%=b.name.username%>
+                </td>
+                <td>
+                  <%= b.amt %>
+                </td>
+              </tr>
+              <%})%>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/script/show.js"></script>
+    <script type="text/javascript" src="/script/front.js"></script>
+    <%- include('partials/footer'); %>
+  </body>
+</html>

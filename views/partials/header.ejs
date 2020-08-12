@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <title>Bootstrap Navbar Dropdown Login and Signup Form with Social Buttons</title> -->
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+	<link    href="/stylesheets/navbar.css" type="text/css" rel="stylesheet">
+	<link    href="/stylesheets/index.css" type="text/css" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript"
+		src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=lN45Mx8IAk_noSg9XIpVA9egiJyybfRQ1IE-My6elws5yYQ6Zo5JdszTztJ5hrzfVXVH1qZ3WE7lAreYLkGNfGMuXhyMTLN0Fqvf47hkDefIXMHza5wEwyPzEMJ4JlLVymol9MPKHZAcWR50gofwwpH2AOrWcNYgGqM3lElMvMOd-JFNXGBIDXIoMzWFCEq9ETOEkieZxCQlnaQEGyGt5_Alt6xWMPvJt5mkKezDIn5vHWTbf6oEbZj_Sii0dYLTJUWGJH-M1AG1nkPyZ5ckVPZJB3MedLVGqtzQFoFqKpqKlYAdANQXC3cm8Q5mk2Sn9gvspdxZ5WZpeiRWEQTy4mhNRGH2aBOE8lJGnzaNaSqqjuCWHoX1PQNE79eW5u0MY2H-KnQVTKRLn4jqC0r_Y2fJnMbY-NBEJYFyFMeLwNBQ7zofdbyCa3-ZjPg973hGCts2U7E9kVz_OEpWDoEOJA6zfe4OrZQDXmvmPvqDpwvmL5vF70WHhGMPR11elmmesn2soQITmVnf4ZU3Y5cPF16s5m7ZI5NZn2YLl4kLJhzyfDdhIZaBcbTqucs1AvDtdZacLaWSl_IMC8k3TXTDRboO3jwvTIQ4Mn3cLDoJGHDJxcNJFC-CLPkJbBbZOy9sseDF7wo5V7d8--Ti-q-JgbXgfKrqmZFbHuG1zZVx84SIBHhzXbJTMoWgl_rd6GvUleN86ArGX-b9r9md6owABSQYP1LCrTIJ-F0_h2kceOYGOEb6o3xxkHsTXs38Osoo_ebz6fJc_Wm_nINWWruuMLCTIa3_rxrG8QlsnO1yYYMMw9_hxsLfl28AGOpPguj1zAlZ4hi57YqpnXo00wbPwdkcSULYPSoCYUJqk_oxGObzqhrBFG08CM3sNzNZx5ZAQGIE20kzD_yzCsWbu1ujBLEEzhLmwSzu5rBHTMp7f1HrYt5YWAxpr98sIdKM7DLGwhWoolfQsWmR1mk03er16tzbBYlIFUynwS4y9IpUw1xe3tTET36qELIvxnVl2JDxyGucg-wP9U8R6I_QssQzDSC0W4JIafhwJs1E9VcdFLiTt86guVcmO5oLGv52s3_Y2sEj8H-4yhmfmSRl2tqtx90sDWVy90ZYz98xzOi_4-HXAO7uWkxWPf3IavRjZF1bDGulOIOHlZsd3MU8Lyi-3zsBfOhTFD99cRAFgQZBgWwXs18y14IikR4E6q1hKvpUIwEEbnzS0v6wb1LfHpm0IQ"
+		nonce="1ddfcc0f267d34dc5d3c58d662937539" charset="UTF-8"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="navbar.css">
+
+
+	<script type="text/javascript">
+		// Prevent dropdown menu from closing when click inside the form
+		$(document).on("click", ".navbar-right .dropdown-menu", function (e) {
+			e.stopPropagation();
+		});
+	</script>
+
+	<style>
+
+
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+		<div class="navbar-header d-flex col">
+			<a class="navbar-brand">Art<b> Gallery</b></a>
+			<!-- To get dropdown of navbar when size of screen is small -->
+			<button type="button" data-target="#navbarCollapse" data-toggle="collapse"
+				class="navbar-toggle navbar-toggler ml-auto">
+				<span class="navbar-toggler-icon"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<!-- Collection of nav links, forms, and other content for toggling -->
+		<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+			<ul class="nav navbar-nav">
+				<li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">About</a></li>
+				<li class="nav-item"><a href="/gallery" class="nav-link">Gallery</a></li>
+
+				
+				<!-- <li class="nav-item"><a herf="#" class="nav-link">Gallery</a></li> -->
+				<li class="nav-item "><a href="#" class="nav-link">Auctions</a></li>
+				<!-- <li class="nav-item"><a href="#" class="nav-link">Blog</a></li> -->
+				<li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+			</ul>
+			<!-- <form class="navbar-form form-inline">
+			<div class="input-group search-box">								
+				<input type="text" id="search" class="form-control" placeholder="Search here...">
+				<span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+			</div>
+		</form> -->
+			<ul class="nav navbar-nav navbar-right ml-auto">
+				<li class="nav-item">
+					<!-- <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a> -->
+					<a href="#" data-toggle="dropdown"
+						class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Login</a>
+					<ul class="dropdown-menu form-wrapper">
+						<li>
+							<form>
+								<p class="hint-text">Sign in with your social media account</p>
+								<div class="form-group social-btn clearfix">
+									<a href="#" class="btn btn-primary pull-left"><i class="fa fa-facebook"></i>
+										Facebook</a>
+									<a href="#" class="btn btn-danger pull-right"><i class="fa fa-google"></i> Google</a>
+								</div>
+								<div class="or-seperator"><b>or</b></div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Username" required="required">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" placeholder="Password"
+										required="required">
+								</div>
+								<input type="submit" class="btn btn-primary btn-block" value="Login">
+								<div class="form-footer">
+									<a href="#">Forgot Your password?</a>
+								</div>
+							</form>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a href="#" data-toggle="dropdown"
+						class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
+					<ul class="dropdown-menu form-wrapper">
+						<li>
+							<form>
+								<p class="hint-text">Fill in this form to create your account!</p>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Username" required="required">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" placeholder="Password"
+										required="required">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" placeholder="Confirm Password"
+										required="required">
+								</div>
+								<div class="form-group">
+									<label class="checkbox-inline"><input type="checkbox" required="required"> I accept
+										the <a href="#">Terms &amp; Conditions</a></label>
+								</div>
+								<input type="submit" class="btn btn-primary btn-block" value="Sign up">
+							</form>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	

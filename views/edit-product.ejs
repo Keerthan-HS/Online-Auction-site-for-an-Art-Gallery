@@ -1,0 +1,28 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>Edit the creds here</h1><br />
+    <form action='/gallery/update/<%= element._id %>' method='POST'>
+        <div>
+            <input type="text" name="description" value="<%=element.description %>" placeholder="Description" autocomplete="off" />
+        </div>
+        <div>
+            <input type="text" name="name" value="<%=element.name %>" placeholder="Product name" autocomplete="off" />
+        </div>
+        <div>
+            <input type="number" name="minbid" value="<%=element.minbid %>" placeholder="Minbid" autocomplete="off" />
+        </div>
+        <div>
+            <input type="submit" value="Update" />
+        </div>
+
+
+    </form>
+
+
+
+</html>

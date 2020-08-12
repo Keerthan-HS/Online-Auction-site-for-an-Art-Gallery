@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/gallery.css">
+    <!-- JS, Popper.js, and jQuery -->
+
+    <title>Document</title>
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-brand">
+                    <a href="/" style="color: azure;">
+            ArtGallery
+          </a>
+                </div>
+
+                <div class="menu-icons open">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-list">
+                    <div class="menu-icons close">
+                        <i class="fas fa-times"></i>
+                    </div>
+
+                    <li class="nav-item">
+                        <a href="/" class="nav-link ">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/gallery" class="nav-link current">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/auction" class="nav-link">Auctions</a>
+                    </li>
+
+                    <%if(!currentUser){ %>
+                        <li class="nav-item">
+                            <a href="/users/register" class="nav-link">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/users/login" class="nav-link">Login</a>
+                        </li>
+                        <%} else {%>
+
+                            <li class="nav-item">
+                                <a href="/users/logout" class="nav-link">Log-out</a>
+                            </li>
+                            <% }%>
+                </ul>
+
+
+            </nav>
+        </div>
+    </header>
+
+
+    <section class="hero">
+        <div class="container">
+            <div class="main-msg">
+                <h1>OUR COLLECTIONS</h1>
+
+                <!-- Large split button group -->
+                <div class="menuarea">
+                    <ul>
+                        <li>View By Categories
+                            <ul class="dropdown">
+                                <a href="/gallery">
+                                    <li> All</li>
+
+                                </a>
+                                <a href="/gallery/category/Paintings">
+                                    <li> Paintings</li>
+
+                                </a>
+
+                                <a href="/gallery/category/Sketches">
+                                    <li>Sketches</li>
+                                </a>
+                                <a href="/gallery/category/Sculptures">
+                                    <li> Sculptures</li>
+
+                                </a>
+                                <a href="/gallery/category/Photographs">
+                                    <li> Photography</li>
+                                </a>
+
+                            </ul>
+                        </li>
+                    </ul>
+
+
+                    </li>
+                </div>
+
+            </div>
+        </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="gallery-section">
+
+        <h1 class="cat-text">You are viewing our
+            <%=cat %>
+        </h1>
+        <% if (currentUser && currentUser.isAdmin){ %>
+            <a href="/gallery/addProduct" class="btn btn-primary">Add Product</a>
+            <% } %>
+                <div class="container">
+
+                    <div class="row">
+
+                        <% product.forEach(element => { %>
+
+                            <div class="col-lg-4 col-md-6 mb-4 px-5">
+                                <div class="card justify-center" style="width: 30rem; height: 40rem;">
+                                    <img class="card-img-top" src="<%= element.image %> " alt="Card image cap" style="height: 200px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="font-size: x-large;">
+                                            <%= element.name %>
+                                        </h5>
+                                        <p class="card-text">
+                                            <span class="font-weight-bold">Owner</span> :
+                                            <%= element.owner %> <br>
+                                                <span class="font-weight-bold">Category</span>:
+                                                <%= element.category %> <br>
+                                                    <span class="font-weight-bold">Description</span> :
+                                                    <%= element.description %>
+
+                                        </p>
+                                        <% if (currentUser && currentUser.isAdmin){ %>
+                                            <a href="/gallery/update/<%=element._id%>" class="btn btn-primary">Edit</a>
+                                            <a href="/gallery/delete/<%=element._id%>" class="btn btn-primary">Delete</a>
+                                            <%} %>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }) %>
+
+
+
+                    </div>
+
+
+                </div>
+
+    </section>
+
+    <script src="/script/front.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <%- include('partials/footer'); %>

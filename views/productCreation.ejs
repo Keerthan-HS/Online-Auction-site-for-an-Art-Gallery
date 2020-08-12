@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <title>Insertion of product</title>
+</head>
+
+<body>
+    <h1>Enter Product details</h1>
+    <form action="/gallery/addProduct" method="POST">
+        <div>
+            <input type="text" placeholder="Name" name="name" required="required" autocomplete="off" />
+        </div>
+        <div>
+            <input type="text" placeholder="Description" name="description" required="required" autocomplete="off" />
+        </div>
+
+        <div>
+            <select name="category">
+          <option name="" value="">Category</option>
+          <option name="a" value="Paintings">Painting</option>
+          <option name="b" value="Sculptures">Sculpture</option>
+          <option name="c" value="Sketches">Sketch</option>
+          <option name="d" value="Photographs">Photograph</option>
+        </select>
+        </div>
+        <div>
+            <input type="Number" placeholder="Min Bid" name="minbid" required="required" autocomplete="off" />
+        </div>
+        <div>
+            <input type="text" placeholder="Name of the owner" name="owner" required="required" autocomplete="off" />
+        </div>
+        <!-- <div>
+            <input type="file" name="image" />
+        </div> -->
+        <div>
+            <input type="text" placeholder="image URl" name="image" required="required" autocomplete="off" />
+        </div>
+        <div>
+            <input type="submit" value="submit" />
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/stylesheets/auction.css">
+
+    <!-- JS, Popper.js, and jQuery -->
+
+    <title>Document</title>
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-brand">
+                    <a href="front.html" style="color: azure;">
+            ArtGallery
+          </a>
+                </div>
+
+                <div class="menu-icons open">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-list">
+                    <div class="menu-icons close">
+                        <i class="fas fa-times"></i>
+                    </div>
+
+                    <li class="nav-item">
+                        <a href="/" class="nav-link ">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/gallery" class="nav-link ">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/auction" class="nav-link current">Auctions</a>
+                    </li>
+
+                    <%if(!currentUser){ %>
+                        <li class="nav-item">
+                            <a href="/users/register" class="nav-link">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/users/login" class="nav-link">Login</a>
+                        </li>
+                        <%} else {%>
+
+                            <li class="nav-item">
+                                <a href="/users/logout" class="nav-link">Log-out</a>
+                            </li>
+                            <% }%>
+                </ul>
+
+
+            </nav>
+        </div>
+    </header>
+
+
+    <section class="hero">
+        <div class="container">
+            <section class="container-fluid ">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div id="headingGroup" class="d-none d-md-block  ">
+
+                            <img src="/img/clipart.png" alt="">
+
+                        </div>
+                    </div>
+                    <div class="text-white text-left col-md-6 px-5">
+                        <h1>Auction Rules</h1>
+                        <p>
+                            User should log-in before placing the bid. <br> One User Account Per Person / IP Address / House is allowed. <br> Group Bidding is strictly not allowed <br> The user should always place the bid higher than the current bid <br>                            Each categories will be auctioned per day. <br> The user must bid within the given time. <br> Do not use any 3rd party bidding softwares of bots for bidding. <br> Misleading USER IDs are not allowed - Please don't try your
+                            tricks. <br>
+                        </p>
+                    </div>
+                </div>
+                <div class="text-white text-center mt-5 pt-5">
+                    <h1 class="gg">The Auction Ends in</h1>
+                    <h1 id="demo"></h1>
+
+                </div>
+
+            </section>
+
+            <!-- Large split button group -->
+
+        </div>
+        </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="gallery-section">
+
+
+
+
+
+        <div class="container">
+
+            <div class="row">
+
+                <% product.forEach(element => { %>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card justify-center" style="width: 30rem; height: 40rem;">
+                            <img class="card-img-top" src=" <%= element.image %> " alt="Card image cap" style="height: 200px;">
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-size: x-large;">
+                                    <%= element.name %>
+                                </h5>
+                                <p class="card-text">
+                                    <span class="font-weight-bold">Owner</span> :
+                                    <%= element.owner %> <br>
+                                        <span class="font-weight-bold">Category</span>:
+                                        <%= element.category %> <br>
+                                            <span class="font-weight-bold">Description</span> :
+                                            <%= element.description %>
+
+                                </p>
+
+                                <a href="/auction/<%=element._id%>" class="btn btn-primary">Bid Now</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Jun 18, 2020 15:55:25").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h " +
+                minutes + "m " + seconds + "s ";
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+    <script src="/script/front.js"></script>
+
+    <script>
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script type="type/javascript" src="/script/countdown.js"></script>
+    <%- include('partials/footer'); %>

@@ -1,0 +1,25 @@
+<h1>The Product is:
+    <%=reqProduct.name%>
+</h1>
+
+<h3>Name:
+    <%=reqProduct.name%>
+</h3>
+<h3>Description:
+    <%=reqProduct.description%>
+</h3>
+<!-- <h3>Time:
+    <%=reqProduct.time%>
+</h3> -->
+<h3>Category:
+    <%=reqProduct.category%>
+</h3>
+<h3>Minbid:
+    <%=reqProduct.minbid%>
+</h3>
+<div>
+    <form action="/gallery" , method="GET">
+        <button>Gallery</button>
+    </form>
+    <a href="/gallery/update/<%=reqProduct._id%>">back</a>
+</div>

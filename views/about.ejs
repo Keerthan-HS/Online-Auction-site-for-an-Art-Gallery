@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-eqiv="refresh" content="5" ;url="/auction/:id" />
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/stylesheets/gallery.css" />
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-brand">
+                    <a href="/" style="color: azure;">
+              ArtGallery
+            </a>
+                </div>
+
+                <div class="menu-icons open">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-list">
+                    <div class="menu-icons close">
+                        <i class="fas fa-times"></i>
+                    </div>
+
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/gallery" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/auction" class="nav-link">Auctions</a>
+                    </li>
+
+                    <%if(!currentUser){ %>
+                        <li class="nav-item">
+                            <a href="/users/register" class="nav-link">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/users/login" class="nav-link">Login</a>
+                        </li>
+                        <%} else {%>
+
+                            <li class="nav-item">
+                                <a href="/users/logout" class="nav-link">Log-out</a>
+                            </li>
+                            <% }%>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="main-msg">
+                <h1>About Us</h1>
+            </div>
+        </div>
+    </section>
+    <h1>
+        <b><u> About The Gallery:</u></b>
+    </h1>
+    <br />
+    <br />
+    <h3>
+        <p style="font-size: 2rem;">
+            This is a new startup project developed by <b>Keerthan H.S </b> and
+            <b>Nayan Bhushan K.N</b>.
+        </p>
+
+        <p style="font-size: 2rem;">
+            We are proud to develop this website as there were no websites developed by the engineeres of Banglore for art auction.
+        </p>
+        <p style="font-size: 2rem;">
+            Our main aim is to provide the<b>
+          best,original,genuine and relaiable</b
+        >
+        products from the most relaible owners of the product.
+      </p>
+      <p style="font-size: 2rem;">
+        Here we are auctioning 4 categories of
+        products:Paintings,Sculpture,Photograhs and Sketches.
+      </p>
+    </h3>
+    <hr />
+    <br />
+    <br />
+    <h1>
+      <b><u>About Developers:</u></b>
+            <br />
+            <br />
+            </h1>
+            <h2>
+                <b><u>Keerthan H.S</u></b>
+            </h2>
+            <h3>
+                <p style="font-size: 2rem;">
+                    Keerthan H.S is an aspiring developer who is still studying in 3rd year(as on 12-06-2020).
+                </p>
+                <p style="font-size: 2rem;">
+                    His intrest lies in front-end ,creativity is his strength which is a plus point for his intrest.
+                </p>
+            </h3>
+            <hr />
+
+            <br />
+            <h2>
+                <b><u>Nayan Bhushan K.N:</u></b>
+            </h2>
+            <h3>
+                <p style="font-size: 2rem;">
+                    Nayan Bhushan is a person who wishes to become a good backend developer.Even he is studying in the same class as Keerthan.
+                </p>
+                <p style="font-size: 2rem;">
+                    Further in future him along with Keerthan would like to deploy the project on net and try to get it patended xD
+                </p>
+            </h3>
+            <hr />
+
+            <%- include('partials/footer'); %>
+</body>
+
+</html>
